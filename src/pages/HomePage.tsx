@@ -1,5 +1,5 @@
 import React from 'react';
-import { Scan, AlertCircle, Coffee } from 'lucide-react';
+import { Scan, AlertCircle, Coffee, Pill } from 'lucide-react';
 import { Button } from '../components/Button';
 import { Card } from '../components/Card';
 import { TestimonialCard } from '../components/TestimonialCard';
@@ -16,6 +16,12 @@ export function HomePage() {
       icon: <Coffee size={32} />,
       title: 'Check Drug-Food Interactions',
       description: 'Understand how your medications interact with different foods and beverages.',
+      to: '/check'
+    },
+    {
+      icon: <Pill size={32} />,
+      title: 'Check Drug-Drug Interactions',
+      description: 'Analyze potential interactions between different medications for safer usage.',
       to: '/check'
     },
     {
@@ -95,7 +101,7 @@ export function HomePage() {
           </div>
 
           <div className="mt-10">
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
               {features.map((feature, index) => (
                 <Card
                   key={index}
