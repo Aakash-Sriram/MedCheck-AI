@@ -1,0 +1,82 @@
+// This is your Prisma schema file
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String         @id @default(uuid())
+  email         String         @unique
+  name          String?
+  prescriptions Prescription[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+}
+
+model Medication {
+  id                String              @id @default(uuid())
+  name              String              @unique
+  description       String?
+  prescriptions     Prescription[]
+  drugInteractions  DrugInteraction[] @relation("MedicationToDrugInteractionOne")
+  drugInteractionsTwo DrugInteraction[] @relation("MedicationToDrugInteractionTwo")
+  foodInteractions  FoodInteraction[]   @relation("MedicationToFoodInteraction")
+  similarDrugs      SimilarDrug[]       @relation("MedicationToSimilarDrug")
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+}
+
+model Prescription {
+  id          String     @id @default(uuid())
+  userId      String
+  medicationId String
+  dosage      String
+  frequency   String
+  startDate   DateTime
+  endDate     DateTime?
+  notes       String?
+  user        User       @relation(fields: [userId], references: [id])
+  medication  Medication @relation(fields: [medicationId], references: [id])
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+}
+
+model DrugInteraction {
+  id            String     @id @default(uuid())
+  drug1Id       String
+  drug2Id       String
+  severity      String
+  description   String
+  recommendations String[]
+  drug1         Medication @relation("MedicationToDrugInteractionOne", fields: [drug1Id], references: [id])
+  drug2         Medication @relation("MedicationToDrugInteractionTwo", fields: [drug2Id], references: [id])
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+}
+
+model FoodInteraction {
+  id              String     @id @default(uuid())
+  medicationId    String
+  foodItem        String
+  severity        String
+  description     String
+  recommendations String[]
+  medication      Medication @relation("MedicationToFoodInteraction", fields: [medicationId], references: [id])
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+}
+
+model SimilarDrug {
+  id              String     @id @default(uuid())
+  medicationId    String
+  similarDrugId   String
+  similarityScore Float
+  medication      Medication @relation("MedicationToSimilarDrug", fields: [medicationId], references: [id])
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+}
