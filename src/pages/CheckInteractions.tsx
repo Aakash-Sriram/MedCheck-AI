@@ -43,9 +43,15 @@ export function CheckInteractions() {
           },
           'cranberry juice': {
             severity: 'Moderate',
-            effect: 'Cranberry juice may increase warfarin\'s blood-thinning effect.',
+            effect: 'Cranberry juice can increase warfarin\'s effects, raising bleeding risk.',
             recommendation: 'Monitor INR levels closely if consuming cranberry juice regularly.',
-            details: 'Some studies suggest cranberry juice might enhance warfarin\'s anticoagulant effect, potentially increasing bleeding risk.'
+            details: 'Studies have shown that cranberry juice can enhance warfarin\'s blood-thinning effects, potentially increasing the risk of bleeding.'
+          },
+          'leafy green vegetables': {
+            severity: 'High',
+            effect: 'Vitamin K in leafy greens can reduce the effectiveness of warfarin, increasing the risk of blood clots.',
+            recommendation: 'Maintain consistent intake of vitamin K-rich foods and inform your healthcare provider about dietary changes.',
+            details: 'Leafy green vegetables are high in vitamin K, which can counteract warfarin\'s blood-thinning effects.'
           }
         },
         'tetracycline': {
@@ -54,6 +60,62 @@ export function CheckInteractions() {
             effect: 'Dairy products can reduce tetracycline absorption.',
             recommendation: 'Take tetracycline 2 hours before or after consuming dairy products.',
             details: 'Calcium in dairy products binds to tetracycline, forming an insoluble compound that cannot be absorbed by the body.'
+          }
+        },
+        'statins': {
+          'grapefruit': {
+            severity: 'High',
+            effect: 'Grapefruit can increase statin levels in the blood.',
+            recommendation: 'Avoid grapefruit and grapefruit juice while taking statins.',
+            details: 'Grapefruit can increase statin levels in the blood, raising the risk of side effects like muscle pain.'
+          }
+        },
+        'maois': {
+          'aged cheeses': {
+            severity: 'High',
+            effect: 'Tyramine in aged cheeses can cause dangerous blood pressure spikes.',
+            recommendation: 'Avoid aged cheeses while taking MAOIs.',
+            details: 'Tyramine in aged cheeses can cause dangerous blood pressure spikes when combined with MAOIs.'
+          }
+        },
+        'ace inhibitors': {
+          'bananas': {
+            severity: 'Moderate',
+            effect: 'High potassium content can lead to hyperkalemia.',
+            recommendation: 'Monitor potassium intake and consult healthcare provider.',
+            details: 'High potassium content in bananas can lead to hyperkalemia when taken with ACE inhibitors.'
+          }
+        },
+        'levothyroxine': {
+          'soy products': {
+            severity: 'Moderate',
+            effect: 'Soy can interfere with levothyroxine absorption.',
+            recommendation: 'Take levothyroxine several hours apart from soy products.',
+            details: 'Soy can interfere with the absorption of levothyroxine, reducing its effectiveness.'
+          }
+        },
+        'digoxin': {
+          'high-fiber foods': {
+            severity: 'Moderate',
+            effect: 'Fiber can reduce digoxin absorption.',
+            recommendation: 'Take digoxin several hours apart from high-fiber foods.',
+            details: 'Fiber can reduce the absorption of digoxin, decreasing its effectiveness.'
+          }
+        },
+        'theophylline': {
+          'caffeine': {
+            severity: 'Moderate',
+            effect: 'Caffeine can enhance theophylline side effects.',
+            recommendation: 'Limit caffeine intake while taking theophylline.',
+            details: 'Caffeine can enhance the side effects of theophylline, such as nausea and palpitations.'
+          }
+        },
+        'metronidazole': {
+          'alcohol': {
+            severity: 'High',
+            effect: 'Can cause severe nausea and vomiting.',
+            recommendation: 'Avoid alcohol while taking metronidazole and for 48 hours after.',
+            details: 'Combining alcohol with metronidazole can cause severe nausea and vomiting.'
           }
         }
       };

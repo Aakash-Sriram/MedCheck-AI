@@ -3,6 +3,7 @@ import { Scan, AlertCircle, Coffee, Pill } from 'lucide-react';
 import { Button } from '../components/Button';
 import { Card } from '../components/Card';
 import { TestimonialCard } from '../components/TestimonialCard';
+import { PricingSection } from '../components/PricingSection';
 
 export function HomePage() {
   const features = [
@@ -115,6 +116,9 @@ export function HomePage() {
           </div>
         </div>
       </div>
+
+      {/* Pricing Section */}
+      <PricingSection />
 
       {/* Testimonials Section */}
       <div className="py-12 bg-white">
