@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Coffee } from 'lucide-react';
 import { Button } from '../components/Button';
 
@@ -55,12 +55,19 @@ export function CheckInteractions() {
           }
         },
         'tetracycline': {
-          'dairy': {
+          'milk': {
             severity: 'Moderate',
-            effect: 'Dairy products can reduce tetracycline absorption.',
-            recommendation: 'Take tetracycline 2 hours before or after consuming dairy products.',
-            details: 'Calcium in dairy products binds to tetracycline, forming an insoluble compound that cannot be absorbed by the body.'
-          }
+            effect: 'Milk can reduce tetracycline absorption.',
+            recommendation: 'Take tetracycline at least 2 hours before or after drinking milk.',
+            details: 'Calcium in milk binds to tetracycline, preventing it from being absorbed properly by the body.'
+          },
+          'cheese': {
+            severity: 'Moderate',
+            effect: 'Cheese can interfere with how tetracycline is absorbed.',
+            recommendation: 'Avoid taking tetracycline with cheese or close to meals containing it.',
+            details: 'Cheese contains calcium which binds with tetracycline, making it less effective.'
+}
+
         },
         'statins': {
           'grapefruit': {
